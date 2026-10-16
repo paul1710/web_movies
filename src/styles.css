@@ -1,3 +1,104 @@
-/* You can add global styles to this file, and also import other style files */
+@import "tailwindcss";
 
-@import 'tailwindcss';
+@theme {
+  --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --color-background: #0f0f14;
+  --color-foreground: #f3f3f6;
+  --color-card: #181820;
+  --color-card-foreground: #f3f3f6;
+  --color-secondary: #242430;
+  --color-secondary-foreground: #f3f3f6;
+  --color-muted: #242430;
+  --color-muted-foreground: #9a9ab0;
+  --color-accent: #2e2e3d;
+  --color-accent-foreground: #f3f3f6;
+  --color-border: rgba(255, 255, 255, 0.1);
+  --color-input: rgba(255, 255, 255, 0.14);
+  --color-ring: #e50914;
+  --color-brand: #e50914;
+  --color-brand-foreground: #ffffff;
+  --color-surface: #181820;
+  --color-surface-raised: #21212c;
+  --color-gold: #f59e0b;
+}
+
+:root {
+  --background: #0f0f14;
+  --foreground: #f3f3f6;
+  --card: #181820;
+  --secondary: #242430;
+  --muted: #242430;
+  --muted-foreground: #9a9ab0;
+  --border: rgba(255, 255, 255, 0.1);
+  --input: rgba(255, 255, 255, 0.14);
+  --brand: #e50914;
+  --brand-foreground: #ffffff;
+  --surface: #181820;
+  --surface-raised: #21212c;
+  --gold: #f59e0b;
+}
+
+@layer base {
+  * {
+    border-color: var(--border);
+  }
+
+  body {
+    background-color: var(--background);
+    color: var(--foreground);
+    font-family: var(--font-sans);
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    -webkit-font-smoothing: antialiased;
+  }
+}
+
+.scrollbar-hide {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+.poster-shadow {
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.65);
+}
+
+.hero-fade {
+  background: linear-gradient(
+    to top,
+    var(--background) 4%,
+    rgba(15, 15, 20, 0.6) 45%,
+    transparent 100%
+  );
+}
+
+@keyframes modal-in {
+  from {
+    opacity: 0;
+    transform: translateY(24px) scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.animate-modal-in {
+  animation: modal-in 0.25s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.animate-fade-in {
+  animation: fade-in 0.2s ease-out both;
+}
